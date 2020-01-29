@@ -4,7 +4,7 @@
  * Finalidade: Tratamento de exceções
  * Demandante: Supero - Desafio de programação
  */
-package br.com.supero.task.controller;
+package br.com.prototipos.tasks.controller;
 
 import javax.servlet.http.HttpServletRequest;
 

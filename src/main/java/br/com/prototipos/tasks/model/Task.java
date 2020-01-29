@@ -5,7 +5,7 @@
  * Demandante: Supero - Desafio de programação
  */
 
-package br.com.supero.task.model;
+package br.com.prototipos.tasks.model;
 
 import java.util.Date;
 

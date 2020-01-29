@@ -13,7 +13,7 @@
 			  	- Comportamento do form de edição conforme o estado da tarefa (disabilitado quando a tarefa foi cancelada)
  * Demandante: Supero - Desafio de programação
  */
-package br.com.supero.task.config;
+package br.com.prototipos.tasks.config;
 
 
 import java.util.TimeZone;

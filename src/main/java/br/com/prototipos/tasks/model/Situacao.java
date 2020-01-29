@@ -1,4 +1,4 @@
-package br.com.supero.task.model;
+package br.com.prototipos.tasks.model;
 
 public enum Situacao {
     NOVA("<i class='fa fa-flag fa-inverse text-muted' title='Nova'></i></span>","Nova",0), 

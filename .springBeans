@@ -7,7 +7,7 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>java:br.com.supero.task.config.TaskApplication</config>
+		<config>java:br.com.prototipos.tasks.config.TaskApplication</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

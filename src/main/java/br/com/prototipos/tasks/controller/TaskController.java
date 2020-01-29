@@ -3,7 +3,7 @@
  * Data: 10/01/2020
  * Finalidade: Controllers da aplicação. Não implementei todas as práticas de REST, mas ao menos a listagem dos dados utiliza micro serviço REST
  * Demandante: Supero - Desafio de programação
- */package br.com.supero.task.controller;
+ */package br.com.prototipos.tasks.controller;
 
 import java.util.List;
 
@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import br.com.supero.task.model.Task;
-import br.com.supero.task.repository.TaskRepository;
+import br.com.prototipos.tasks.model.Task;
+import br.com.prototipos.tasks.repository.TaskRepository;
 
 @Controller
 public class TaskController {
@@ -60,6 +60,8 @@ public class TaskController {
           model.addAttribute("alertaSucesso", "Tarefa atualizada com sucesso.");
     	taskRepository.save(task);
     	model.addAttribute("task", task);
+		model.addAttribute("estado", task.getSituacao().getEstado());
+
         return "tasks/form";
     }
 
@@ -68,6 +70,7 @@ public class TaskController {
     	Task task = taskRepository.findById(id).orElse(null);
     	if (task!=null) {
     		model.addAttribute("task", task);
+    		model.addAttribute("estado", task.getSituacao().getEstado());
     		return "tasks/form";
     	} else
     		throw new NotFoundException();

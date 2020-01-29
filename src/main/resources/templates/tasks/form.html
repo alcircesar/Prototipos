@@ -30,7 +30,8 @@
             				<span th:text="${alertaSucesso}"> </span>
         				 </div>
 					
-						<form id="formTask" th:action="@{/salvar}" th:object="${task}" method="post">
+						<form id="formTask" th:action="@{/salvar}" th:object="${task}" method="post"  >
+						  <fieldset th:disabled="${estado}>=40">
 	    
 					   		 <div class="tab-content">
 								<div class="form-row">
@@ -44,17 +45,17 @@
 											<div class="form-group ">
 												<label for="titulo" class="col-form-label">Título</label> 
 												<input type="text" th:field="*{titulo}" class="form-control" 
-												      autofocus="autofocus" id="titulo" placeholder="Título" th:errorclass="is-invalid" th:value="${titulo}" th:disabled="*{situacao.estado}==50" required >
+												      autofocus="autofocus" id="titulo" placeholder="Título" th:errorclass="is-invalid" th:value="${titulo}" required >
 												
 											</div>
 											<div class="form-group col-md-9">
 												<label for="descricao" class="col-form-label">Descrição</label> 
 												<input type="text" th:field="*{descricao}" class="form-control"
-													id="descricao" placeholder="Descrição" maxlength="200" th:errorclass="is-invalid" th:disabled="*{situacao.estado}==50" required>
+													id="descricao" placeholder="Descrição" maxlength="200" th:errorclass="is-invalid"  required>
 											</div>
 											<div class="form-group col-md-2">
 												<label for="modalidadePreco" class="col-form-label">Situacao</label>
-												<select id="situacao" title='Situação'  class="form-control"  th:field="*{situacao}" th:disabled="*{situacao.estado}==50">
+												<select id="situacao" title='Situação'  class="form-control"  th:field="*{situacao}">
 												    <option th:each="situacao : ${T(br.com.supero.task.model.Situacao).values()}"
 												            th:value="${situacao}"
 												            th:text="${situacao.descricao}">
@@ -65,10 +66,10 @@
 									</div>
 					
 					        	</div>
+								</fieldset>
 								<div class="col-md-10">
 									<div class="content-fluid">
-								
-										<input type="submit" class="btn btn-primary" th:value="Salvar">
+										<input type="submit" class="btn btn-primary" th:value="Salvar" th:disabled="${estado}>=40">
 										<a class="btn btn-warning" href="/">Voltar</a> 
 									</div>
 								</div>
@@ -86,6 +87,8 @@
 	<script th:inline="javascript">
     /*<![CDATA[*/
 	  // Sessao para jafascript no padrão Thymeleaf	
+  	  var estado = /*[[${estado}]]*/ "";
+	  
 
     /*]]>*/
     

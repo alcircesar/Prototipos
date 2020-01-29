@@ -5,7 +5,7 @@ import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
-import br.com.supero.task.controller.TaskController;
+import br.com.prototipos.tasks.controller.TaskController;
 
 public class JUnitControllerTest {
 
