@@ -1,4 +1,4 @@
-package br.com.supero.task;
+package br.com.prototipos.tasks;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.assertThat;

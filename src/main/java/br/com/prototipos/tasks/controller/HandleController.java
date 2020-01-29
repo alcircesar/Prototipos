@@ -2,7 +2,6 @@
  * Programador: Alcir
  * Data: 10/01/2020
  * Finalidade: Tratamento de exceções
- * Demandante: Supero - Desafio de programação
  */
 package br.com.prototipos.tasks.controller;
 

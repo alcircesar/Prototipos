@@ -56,7 +56,7 @@
 											<div class="form-group col-md-2">
 												<label for="modalidadePreco" class="col-form-label">Situacao</label>
 												<select id="situacao" title='Situação'  class="form-control"  th:field="*{situacao}">
-												    <option th:each="situacao : ${T(br.com.supero.task.model.Situacao).values()}"
+												    <option th:each="situacao : ${T(br.com.prototipos.tasks.model.Situacao).values()}"
 												            th:value="${situacao}"
 												            th:text="${situacao.descricao}">
 												    </option>

@@ -2,8 +2,9 @@
  * Programador: Alcir
  * Data: 10/01/2020
  * Finalidade: Controllers da aplicação. Não implementei todas as práticas de REST, mas ao menos a listagem dos dados utiliza micro serviço REST
- * Demandante: Supero - Desafio de programação
- */package br.com.prototipos.tasks.controller;
+ */
+
+package br.com.prototipos.tasks.controller;
 
 import java.util.List;
 
@@ -24,14 +25,12 @@ import br.com.prototipos.tasks.repository.TaskRepository;
 
 @Controller
 public class TaskController {
-    //private static Logger logger = LoggerFactory.getLogger(HandleController.class);
 
 	@GetMapping(value= {"/"})
 	public String home() {
 		return "tasks/listar";
 		
 	}
-	
 	
     @Autowired
     private TaskRepository taskRepository;

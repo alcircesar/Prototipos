@@ -11,7 +11,6 @@
 				• Versionamento com Git;
 			  Funcionalidades adicionais:
 			  	- Comportamento do form de edição conforme o estado da tarefa (disabilitado quando a tarefa foi cancelada)
- * Demandante: Supero - Desafio de programação
  */
 package br.com.prototipos.tasks.config;
 
@@ -28,9 +27,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @Configuration
-@EnableJpaRepositories("br.com.supero.task.repository")
-@ComponentScan("br.com.supero.task")
-@EntityScan("br.com.supero.task.model")   
+@EnableJpaRepositories("br.com.prototipos.tasks.repository")
+@ComponentScan("br.com.prototipos.tasks")
+@EntityScan("br.com.prototipos.tasks.model")   
 @EnableAutoConfiguration
 public class TaskApplication {
 

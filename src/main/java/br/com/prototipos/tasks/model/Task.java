@@ -2,7 +2,6 @@
  * Programador: Alcir
  * Data: 10/01/2020
  * Finalidade: Model para persistência das tarefas conforme especificação do ORM utilizado
- * Demandante: Supero - Desafio de programação
  */
 
 package br.com.prototipos.tasks.model;
