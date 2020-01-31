@@ -42,7 +42,9 @@ public class TaskController {
     
     @GetMapping("/nova")
     public String nova(Model model) {
-    	model.addAttribute("task", new Task());
+    	Task task = new Task();
+    	model.addAttribute("task", task);
+		model.addAttribute("estado", task.getSituacao().getEstado());
         return "tasks/form";
     }
     
