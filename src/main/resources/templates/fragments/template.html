@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
 <head th:fragment="header">
   <meta charset="UTF-8">
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
@@ -20,11 +21,26 @@
 	<!-- Navbar -->
  	<div th:fragment="navbarMenu">
 		<nav class='navbar navbar-expand navbar-dark bg-dark'>
-				<a class='navbar-brand' href='/'>Prototipos</a>
-
+			<a class='navbar-brand' href='/'>Tarefas</a>
+				
+			<!--  Navbar conectado -->
+			
+		    <ul class="navbar-nav ml-auto" sec:authorize="isAuthenticated()">
+		      <li class="nav-item dropdown no-arrow mx-1">
+		         <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		            <span class="badge badge-danger" id="alertas"></span>
+		            <i class="fas fa-bell fa-fw"></i>
+		          </a>
+		          <div id="tarefas" class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
+		          </div>
+		      </li>
+		      <li class="nav-item no-arrow mx-1">
+	        		<a class="nav-link " th:href="@{/logout}" id="logout" aria-haspopup="true" aria-expanded="false">
+	                   <i class="fas fa-power-off"></i>
+		        </a>
+		      </li>
+		    </ul>
 		</nav>
-
-
 	</div>
   
   

@@ -1,0 +1,48 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+   <head th:insert="fragments/template :: header"> </head>
+
+    <head>
+          <title>Prototipos::Tarefas::Login</title>
+		  <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" th:rel="stylesheet" />
+		  <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css}" th:rel="stylesheet"/>
+		  
+		  <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+		  <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+		  <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+        
+    </head>
+    <body>
+          <div class="container-fluid">
+     	    <div th:replace="fragments/template :: navbarMenu"></div>
+              <div class="container">
+    
+            <div class="card card-login col-md-offset-5 col-md-2 mx-auto mt-5"> 
+            
+    
+        	<div th:if="${param.error}" class="alert alert-danger">
+            	Usuário e/ou senha inválidos.
+        	</div>
+        	<div th:if="${param.logout}" class="alert alert-warning">
+            	Você fez logout.
+        	</div>
+        	<div th:if="${sincAlertaIndicador}" class="alert alert-warning">
+        	   	<span th:text="${sincAlerta}"> </span>
+        	</div>
+        	<div th:if="${sincSucessoIndicador}" class="alert alert-success">
+            	<span th:text="${sincSucesso}"> </span>
+        	</div>
+        	<form th:action="@{/login}" method="post" id="form_login_portalnovo">
+            	<label>Usuário: </label> <input type="text" name="username" class="form-control"/>
+                 <label>Senha: </label> <input type="password" name="password" class="form-control"/>
+            	<div ><input class="btn btn-primary btn-block" type="submit" value="Entrar"/></div>
+            	<div class="card-body">
+				    <h6 class="card-title">Usuário/Senha</h6>
+				    <em class="card-text">tarefa/Tarefa</em>
+				 </div>
+        	</form>
+        	
+        	</div>
+      	  </div>
+      	  </div>
+    </body>
+</html>

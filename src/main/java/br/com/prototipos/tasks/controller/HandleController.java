@@ -29,25 +29,25 @@ public class HandleController implements ErrorController  {
         logger.error("Exceção de segurança", throwable);
         String errorMessage = (throwable != null ? throwable.getMessage() : "Erro desconhecido");
         model.addAttribute("errorMessage", errorMessage);
-        return "erro";
+        return "error";
     }
     
     @ExceptionHandler(NoHandlerFoundException.class)
     public String excecaoPaginaNaoEncontrada(NoHandlerFoundException e, Model model) {
         String errorMessage = e.getMessage();
         model.addAttribute("errorMessage", errorMessage);
-        return "erro";
+        return "error";
     }
     
     @RequestMapping("/error")
     public String handleError(HttpServletRequest request, Model model) {
         model.addAttribute("errorMessage", "Erro não tratado");
-       return "erro";
+       return "error";
     }
 
 	@Override
 	public String getErrorPath() {
-		return "erro";
+		return "error";
 	}
 
 }
