@@ -11,4 +11,5 @@
 
 > Banco de dados: o protótipo foi construído usando MySQL mas pode usar qualquer SGBD, basta configurar o arquivo application.properties
 
++ Protótipo rodando: [clique aqui](http://sistemas.eterium.com.br:8088)
 + Usuário e senha para acesso: tarefa/Tarefa

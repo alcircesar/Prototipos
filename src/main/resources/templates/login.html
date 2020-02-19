@@ -31,7 +31,7 @@
         	<div th:if="${sincSucessoIndicador}" class="alert alert-success">
             	<span th:text="${sincSucesso}"> </span>
         	</div>
-        	<form th:action="@{/login}" method="post" id="form_login_portalnovo">
+        	<form th:action="@{/login}" method="post" id="form_login">
             	<label>Usuário: </label> <input type="text" name="username" class="form-control"/>
                  <label>Senha: </label> <input type="password" name="password" class="form-control"/>
             	<div ><input class="btn btn-primary btn-block" type="submit" value="Entrar"/></div>

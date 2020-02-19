@@ -7,6 +7,10 @@
 package br.com.prototipos.tasks.controller;
 
 import java.util.List;
+import java.util.Set;
+
+import javax.validation.ConstraintViolation;
+import javax.validation.Validator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
@@ -14,6 +18,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +30,9 @@ import br.com.prototipos.tasks.repository.TaskRepository;
 
 @Controller
 public class TaskController {
+	// Injetando Validator - Bean que trata dos erros no Hibernate/JPA
+    @Autowired private Validator validator;
+
 
 	@GetMapping(value= {"/"})
 	public String home() {
@@ -50,10 +58,17 @@ public class TaskController {
     
     @PostMapping("/salvar")
     public String ordemServicoSalvar(@ModelAttribute Task task, BindingResult result, Model model) {
+    	 // Coletar erros oriundos das anotações javax.validation e adicionar ao BindingResult (result):
+        Set<ConstraintViolation<Task>> violations = validator.validate(task);
+        for (ConstraintViolation<Task> violation : violations) 
+        {
+            String propertyPath = violation.getPropertyPath().toString();
+            String message = violation.getMessage();
+            result.addError(new FieldError("task",propertyPath,message));
+        } 
+
         if (result.hasErrors() ) {
-            model.addAttribute("task", task);
-            model.addAttribute("alertaErro", "Existem erros de validação, corrija-os e tente salvar novamente.");
-            return "tasks/nova";
+            return "tasks/form";
         }
         if (task.getId()==0)
             model.addAttribute("alertaSucesso", "Tarefa criada com sucesso.");

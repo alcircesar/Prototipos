@@ -31,7 +31,13 @@
         				 </div>
 					
 						<form id="formTask" th:action="@{/salvar}" th:object="${task}" method="post"  >
-						  <fieldset th:disabled="${estado}>=40">
+							<!-- Mostra os erros de validação caso existam: -->
+						    <div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
+    							<p th:each="err : ${#fields.errors('*')}" th:text="${err}"></p>    
+							</div>
+						
+						   <!-- disabilita o fieldset se o estado da tarefa for maior ou igual a 40 (finalizada)  -->
+						   <fieldset th:disabled="${estado!=null&&estado>=40}">
 	    
 					   		 <div class="tab-content">
 								<div class="form-row">
@@ -45,13 +51,13 @@
 											<div class="form-group ">
 												<label for="titulo" class="col-form-label">Título</label> 
 												<input type="text" th:field="*{titulo}" class="form-control" 
-												      autofocus="autofocus" id="titulo" placeholder="Título" th:errorclass="is-invalid" th:value="${titulo}" required >
+												      autofocus="autofocus" id="titulo" placeholder="Título" th:errorclass="is-invalid" th:value="${titulo}"  >
 												
 											</div>
 											<div class="form-group col-md-9">
 												<label for="descricao" class="col-form-label">Descrição</label> 
 												<input type="text" th:field="*{descricao}" class="form-control"
-													id="descricao" placeholder="Descrição" maxlength="200" th:errorclass="is-invalid"  required>
+													id="descricao" placeholder="Descrição" maxlength="200" th:errorclass="is-invalid"  >
 											</div>
 											<div class="form-group col-md-2">
 												<label for="modalidadePreco" class="col-form-label">Situacao</label>
@@ -69,7 +75,7 @@
 								</fieldset>
 								<div class="col-md-10">
 									<div class="content-fluid">
-										<input type="submit" class="btn btn-primary" th:value="Salvar" th:disabled="${estado}>=40">
+										<input type="submit" class="btn btn-primary" th:value="Salvar" th:disabled="${estado!=null&&estado>=40}">
 										<a class="btn btn-warning" href="/">Voltar</a> 
 									</div>
 								</div>

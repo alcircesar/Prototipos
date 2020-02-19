@@ -34,6 +34,7 @@ public class Task {
 	private String titulo;
     @Enumerated(EnumType.STRING)
 	private Situacao situacao=Situacao.NOVA;
+	@NotEmpty(message="Descrição deve ser informada.")
 	private String descricao;
     @JsonFormat(pattern="dd/MM/yyyy HH:mm")
     @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
