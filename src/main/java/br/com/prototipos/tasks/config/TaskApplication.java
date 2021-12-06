@@ -34,7 +34,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 public class TaskApplication {
 
 	public static void main(String[] args) {
-        TimeZone.setDefault(TimeZone.getTimeZone("GMT-3"));
 		SpringApplication.run(TaskApplication.class, args);
 	}
 

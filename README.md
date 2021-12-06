@@ -3,7 +3,7 @@
 ## Esse é um repositório de protótipos de domínio público com intuito de ajudar outros programadores ou pessoas interessadas no assunto.
 
 ### 1 - Protótipo de um sistema web com um **CRUD** simples mas completo. 
-+ Linguagem: Java
++ Linguagem: Java 11
 + Versionamento: Git
 + Ferramenta de compilação: Maven
 + Frameworks: Spring Boot, Hibernate/JPA e Thymeleaf
